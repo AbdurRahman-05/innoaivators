@@ -1,4 +1,5 @@
 import React from 'react';
+import './About.css';
 import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { TargetIcon, UsersIcon, TrophyIcon, RocketIcon } from 'lucide-react';
@@ -69,7 +70,7 @@ export function About() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-primary-black text-white about-container">
+    <div className="w-full min-h-screen about-container">
       <video
         className="about-video"
         src={aboutVideo}
@@ -134,6 +135,35 @@ export function About() {
                 Our diverse team brings together expertise in software
                 engineering, design, data science, and business strategy to
                 deliver holistic solutions that drive measurable results.
+              </p>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col justify-center"
+            >
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Our Mission
+              </h2>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Our mission is to empower businesses with transformative digital solutions that drive growth, efficiency, and innovation. We are committed to delivering high-quality, custom-tailored services that exceed expectations and create lasting value for our clients.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex flex-col justify-center"
+            >
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Our Vision
+              </h2>
+              <p className="text-gray-300 mb-4 leading-relaxed">
+                Our vision is to be a leading force in the digital revolution, pioneering new technologies and strategies that shape the future of business. We aspire to be the go-to partner for companies seeking to innovate, scale, and succeed in an ever-evolving digital landscape.
               </p>
             </motion.div>
           </div>
