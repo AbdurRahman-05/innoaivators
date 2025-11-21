@@ -23,7 +23,6 @@ export function Navigation() {
     { name: 'App Development', path: '/app-development' },
     { name: 'IoT Development', path: '/iot-development' },
     { name: 'AI Automations', path: '/ai-automations' },
-    { name: 'Agentic AI', path: '/agentic-ai' },
     { name: 'Digital Marketing', path: '/digital-marketing' },
   ];
 

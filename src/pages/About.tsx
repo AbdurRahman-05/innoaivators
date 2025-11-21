@@ -1,16 +1,21 @@
 import React from 'react';
 import './About.css';
-import { Navigation } from '../components/Navigation';
 import { Footer } from '../components/Footer';
 import { TargetIcon, UsersIcon, TrophyIcon, RocketIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { TeamCarousel } from '../components/TeamCarousel';
+import { BorderBeam } from '../components/BorderBeam';
+import video from '../backgroundeffects/3129977-uhd_3840_2160_30fps.mp4';
+import { useTeam } from '../contexts/TeamContext';
 import abdur from '../team/abdur.jpg';
 import afsal from '../team/afsal.jpg';
+import allen from '../team/allen.jpg';
+import balaji from '../team/balaji.jpg';
 import mafaz from '../team/mafaz.jpg';
 import safiq from '../team/safiq.jpg';
-import balaji from '../team/balaji.jpg';
-import allen from '../team/allen.jpg';
-import aboutVideo from '../backgroundeffects/3129977-uhd_3840_2160_30fps.mp4';
+
+import Timeline from './Timeline';
+import './Timeline.css';
 
 export function About() {
   const values = [
@@ -36,33 +41,39 @@ export function About() {
     },
   ];
 
-  const teamMembers = [
+  const members = [
     {
+      id: '1',
       name: 'Abdur',
       role: 'Founder, Gen AI Specialist, IoT Developer',
       image: abdur,
     },
     {
+      id: '2',
       name: 'Afsal',
       role: 'Co-founder, CEO',
       image: afsal,
     },
     {
+      id: '3',
       name: 'Allen',
       role: 'Co-founder, MD',
       image: allen,
     },
     {
+      id: '4',
       name: 'Balaji',
       role: 'Co-founder, Developer Lead & HR',
       image: balaji,
     },
     {
+      id: '5',
       name: 'Mafaz',
       role: 'Co-founder, AI Specialist & Prompt Engineer',
       image: mafaz,
     },
     {
+      id: '6',
       name: 'Safiq',
       role: 'Co-founder, Creative Designer & Developer',
       image: safiq,
@@ -70,173 +81,117 @@ export function About() {
   ];
 
   return (
-    <div className="w-full min-h-screen about-container">
-      <video
-        className="about-video"
-        src={aboutVideo}
-        autoPlay
-        loop
-        muted
-      ></video>
-      <Navigation />
-
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 about-content">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              <span className="text-secondary-silver">
-                About Innoaivators
-              </span>
-            </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We&apos;re a team of passionate innovators dedicated to transforming
-              businesses through cutting-edge technology and creative solutions.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+    <div className="w-full min-h-screen bg-transparent text-white about-container">
+      <video autoPlay loop muted id="background-video">
+        <source src={video} type="video/mp4" />
+      </video>
+      <div className="content-container">
+        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 about-content">
+          <div className="max-w-7xl mx-auto">
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-16"
             >
-              <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop"
-                alt="Team collaboration"
-                className="rounded-2xl shadow-2xl w-full h-96 object-cover"
-              />
+              <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                <span className="text-secondary-silver">
+                  About Innoaivators
+                </span>
+              </h1>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                We&apos;re a team of passionate innovators dedicated to transforming
+                businesses through cutting-edge technology and creative solutions.
+              </p>
             </motion.div>
+
+            
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col justify-center"
+              className="mb-20"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Our Story
+              <h2 className="text-4xl font-bold text-center text-white mb-12">
+                Our Values
               </h2>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Founded in 2020, Innoaivators emerged from a simple vision: to
-                bridge the gap between cutting-edge technology and real-world
-                business needs. What started as a small team of developers has
-                grown into a full-service digital innovation agency.
-              </p>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Today, we serve clients across industries, from startups to
-                enterprises, helping them leverage the power of web development,
-                mobile apps, IoT, AI, and digital marketing to achieve their
-                goals.
-              </p>
-              <p className="text-gray-300 leading-relaxed">
-                Our diverse team brings together expertise in software
-                engineering, design, data science, and business strategy to
-                deliver holistic solutions that drive measurable results.
-              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {values.map((value, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="relative overflow-hidden bg-gradient-to-br from-primary-black via-primary-black to-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-secondary-silver hover:border-opacity-100 border-opacity-50 group hover:scale-105"
+                  >
+                    <BorderBeam />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary-silver to-gray-400 flex items-center justify-center mb-6 group-hover:shadow-lg transition-all duration-300">
+                      <value.icon className="w-7 h-7 text-primary-black" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary-silver transition-colors duration-300">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-300 leading-relaxed">{value.description}</p>
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary-silver via-transparent to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-20"
+            >
+              <h2 className="text-4xl font-bold text-center text-white mb-12">
+                Our Journey
+              </h2>
+              <Timeline />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-20"
+            >
+              <h2 className="text-4xl font-bold text-center text-white mb-2">
+                Our Team
+              </h2>
+              <TeamCarousel members={members} infoPosition="bottom" infoBackground="rgba(0, 0, 0, 0.5)" autoPlay={3000} infoTextColor="white" visibleCards={3} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden bg-gradient-to-r from-secondary-silver via-gray-200 to-secondary-silver rounded-3xl p-12 text-center text-primary-black shadow-2xl"
+            >
+              <div className="absolute inset-0 opacity-10 bg-pattern pointer-events-none" />
+              <div className="relative z-10">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Join Our Journey
+                </h2>
+                <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
+                  We&apos;re always looking for talented individuals who share our
+                  passion for innovation and excellence.
+                </p>
+                <motion.a
+                  href="/contact"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block bg-primary-black text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
+                >
+                  <span className="relative z-10">Get in Touch</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 translate-x-full group-hover:translate-x-0 transition-all duration-500" />
+                </motion.a>
+              </div>
             </motion.div>
           </div>
+        </section>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center"
-            >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Our Mission
-              </h2>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Our mission is to empower businesses with transformative digital solutions that drive growth, efficiency, and innovation. We are committed to delivering high-quality, custom-tailored services that exceed expectations and create lasting value for our clients.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center"
-            >
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Our Vision
-              </h2>
-              <p className="text-gray-300 mb-4 leading-relaxed">
-                Our vision is to be a leading force in the digital revolution, pioneering new technologies and strategies that shape the future of business. We aspire to be the go-to partner for companies seeking to innovate, scale, and succeed in an ever-evolving digital landscape.
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <h2 className="text-4xl font-bold text-center text-white mb-12">
-              Our Values
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <div key={index} className="bg-primary-black rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-secondary-silver">
-                  <div className="w-12 h-12 rounded-lg bg-secondary-silver flex items-center justify-center mb-4">
-                    <value.icon className="w-6 h-6 text-primary-black" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-300">{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <h2 className="text-4xl font-bold text-center text-white mb-12">
-              Our Team
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
-                <div key={index} className="text-center">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-40 h-40 rounded-full mx-auto mb-4 object-cover"
-                  />
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                  <p className="text-gray-400">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-secondary-silver rounded-3xl p-12 text-center text-primary-black"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Join Our Journey
-            </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              We&apos;re always looking for talented individuals who share our
-              passion for innovation and excellence.
-            </p>
-            <a href="/contact" className="inline-block bg-primary-black text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all transform hover:scale-105">
-              Get in Touch
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
-      <Footer />
+      </div>
     </div>
   );
 }

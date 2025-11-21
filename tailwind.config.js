@@ -1,4 +1,4 @@
-export default {
+const config = {
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
@@ -15,4 +15,6 @@ export default {
     },
   },
   plugins: [],
-}
+};
+
+module.exports = config;

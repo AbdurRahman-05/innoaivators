@@ -1,39 +1,70 @@
-import React, { useState } from 'react';
-import { Navigation } from '../components/Navigation';
+import React, { useState, useRef, useEffect } from 'react';
 import { Footer } from '../components/Footer';
 import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Contact() {
+  const [step, setStep] = useState(0);
+  const [messages, setMessages] = useState<{ sender: 'bot' | 'user'; text: string }[]>([]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    service: '',
     message: ''
   });
+  const [inputValue, setInputValue] = useState('');
+  const chatEndRef = useRef<null | HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert("Thank you for your message! We'll get back to you soon.");
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      service: '',
-      message: ''
-    });
+  const botQuestions = [
+    "Hello! What's your name?",
+    (name: string) => `Nice to meet you, ${name}! What's your email address?`,
+    "Great! What can we help you with today?",
+    "Thanks for your message! We'll get back to you soon."
+  ];
+
+  useEffect(() => {
+    if (messages.length === 0) {
+      setMessages([{ sender: 'bot', text: botQuestions[0] }]);
+    }
+  }, [messages.length]);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSendMessage = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputValue.trim()) return;
+
+    const userMessage = { sender: 'user' as 'user', text: inputValue };
+    const newMessages = [...messages, userMessage];
+
+    if (step === 0) {
+      setFormData({ ...formData, name: inputValue });
+      const nextQuestion = botQuestions[1](inputValue);
+      newMessages.push({ sender: 'bot', text: nextQuestion });
+      setStep(1);
+    } else if (step === 1) {
+      setFormData({ ...formData, email: inputValue });
+      newMessages.push({ sender: 'bot', text: botQuestions[2] });
+      setStep(2);
+    } else if (step === 2) {
+      setFormData({ ...formData, message: inputValue });
+      newMessages.push({ sender: 'bot', text: botQuestions[3] });
+      setStep(3);
+      // Here you would typically send the form data to your backend
+      console.log('Form submitted:', { ...formData, message: inputValue });
+    }
+
+    setMessages(newMessages);
+    setInputValue('');
   };
 
   return (
     <div className="w-full min-h-screen bg-primary-black text-white">
-      <Navigation />
-
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -58,99 +89,42 @@ export function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <div className="bg-primary-black rounded-2xl p-8 shadow-xl border border-secondary-silver">
-                <h2 className="text-3xl font-bold text-white mb-6">
+              <div className="bg-gray-800 rounded-2xl p-8 shadow-xl border border-secondary-silver h-full flex flex-col">
+                <h2 className="text-3xl font-bold text-white mb-6 text-center">
                   Send us a message
                 </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-800 border border-secondary-silver rounded-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition"
-                      placeholder="John Doe"
-                    />
+                <div className="flex-grow bg-gray-900 rounded-lg flex flex-col h-96">
+                  <div className="flex-grow p-4 overflow-y-auto">
+                    {messages.map((msg, index) => (
+                      <div key={index} className={`flex ${msg.sender === 'bot' ? 'justify-start' : 'justify-end'} mb-4`}>
+                        <div className={`px-4 py-2 rounded-lg max-w-xs ${msg.sender === 'bot' ? 'bg-gray-700' : 'bg-secondary-silver text-primary-black'}`}>
+                          {typeof msg.text === 'function' ? msg.text(formData.name) : msg.text}
+                        </div>
+                      </div>
+                    ))}
+                    <div ref={chatEndRef} />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-800 border border-secondary-silver rounded-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-white mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-800 border border-secondary-silver rounded-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-white mb-2">
-                      Service Interested In *
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-gray-800 border border-secondary-silver rounded-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="web">Web Development</option>
-                      <option value="app">App Development</option>
-                      <option value="iot">IoT Development</option>
-                      <option value="ai">AI Automations</option>
-                      <option value="agentic">Agentic AI</option>
-                      <option value="marketing">Digital Marketing</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      required
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      className="w-full px-4 py-3 bg-gray-800 border border-secondary-silver rounded-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition resize-none"
-                      placeholder="Tell us about your project..."
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-secondary-silver text-primary-black px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all transform hover:scale-105 flex items-center justify-center space-x-2"
-                  >
-                    <span>Send Message</span>
-                    <SendIcon className="w-5 h-5" />
-                  </button>
-                </form>
+                  {step < 3 && (
+                    <div className="p-4">
+                      <form onSubmit={handleSendMessage} className="flex items-center">
+                        <input
+                          type="text"
+                          value={inputValue}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-gray-700 border border-secondary-silver rounded-l-lg focus:ring-2 focus:ring-secondary-silver focus:border-transparent outline-none transition"
+                          placeholder={step === 0 ? "Your name..." : (step === 1 ? "Your email..." : "Type your message...")}
+                          autoFocus
+                        />
+                        <button
+                          type="submit"
+                          className="bg-secondary-silver text-primary-black px-6 py-3 rounded-r-lg font-semibold hover:shadow-xl transition-all"
+                        >
+                          <SendIcon className="w-6 h-6" />
+                        </button>
+                      </form>
+                    </div>
+                  )}
+                </div>
               </div>
             </motion.div>
             <motion.div
@@ -219,7 +193,6 @@ export function Contact() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
