@@ -11,9 +11,12 @@ import { Contact } from './pages/Contact';
 import { AdminLogin } from './pages/AdminLogin';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { Layout } from './components/Layout';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export function AppRouter() {
-  return <BrowserRouter>
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/about" element={<Layout><About /></Layout>} />
@@ -24,5 +27,6 @@ export function AppRouter() {
         <Route path="/digital-marketing" element={<Layout><DigitalMarketing /></Layout>} />
         <Route path="/contact" element={<Layout><Contact /></Layout>} />
       </Routes>
-    </BrowserRouter>;
+    </BrowserRouter>
+  );
 }

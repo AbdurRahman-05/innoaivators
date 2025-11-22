@@ -1,6 +1,6 @@
 import React from 'react';
 import { Footer } from '../components/Footer';
-import { CodeIcon, LayoutIcon, ZapIcon, ShieldIcon, SearchIcon, SmartphoneIcon, PaletteIcon, LayersIcon, SparklesIcon } from 'lucide-react';
+import { CodeIcon, LayoutIcon, ZapIcon, ShieldIcon, SearchIcon, SmartphoneIcon, PaletteIcon, LayersIcon, SparklesIcon, ArrowRightIcon, CheckCircleIcon, TerminalIcon, CpuIcon, GlobeIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function WebDevelopment() {
@@ -9,37 +9,37 @@ export function WebDevelopment() {
       icon: LayoutIcon,
       title: 'Experience-led UI',
       description: 'Responsive interfaces crafted to feel effortless across every device, resolution, and interaction.',
-      accent: 'from-purple-500/60 via-indigo-500/50 to-blue-500/40',
+      accent: 'bg-blue-500',
     },
     {
       icon: ZapIcon,
       title: 'Performance Obsessed',
       description: 'Edge-optimized builds, code splitting, and smart caching ensure instant responses worldwide.',
-      accent: 'from-amber-400/60 via-orange-500/50 to-pink-500/40',
+      accent: 'bg-amber-500',
     },
     {
       icon: ShieldIcon,
       title: 'Secure Foundations',
       description: 'Audited security, hardened infrastructure, and compliance-first development baked into every release.',
-      accent: 'from-emerald-400/60 via-teal-500/50 to-blue-500/40',
+      accent: 'bg-emerald-500',
     },
     {
       icon: SmartphoneIcon,
       title: 'Omnichannel Ready',
       description: 'Unified experiences that adapt gracefully to mobile, desktop, kiosks, and progressive web apps.',
-      accent: 'from-fuchsia-500/60 via-purple-500/50 to-indigo-500/40',
+      accent: 'bg-purple-500',
     },
     {
       icon: LayersIcon,
       title: 'Composable Systems',
       description: 'Modular architectures that expand with your roadmap and integrate seamlessly with existing platforms.',
-      accent: 'from-sky-400/60 via-cyan-500/50 to-teal-500/40',
+      accent: 'bg-cyan-500',
     },
     {
       icon: SparklesIcon,
       title: 'Continuous Evolution',
       description: 'Experimentation frameworks and data-rich feedback loops to ship, learn, and iterate faster.',
-      accent: 'from-purple-500/60 via-violet-500/50 to-slate-500/40',
+      accent: 'bg-pink-500',
     },
   ];
 
@@ -48,21 +48,29 @@ export function WebDevelopment() {
       icon: SearchIcon,
       title: 'Strategy & Discovery',
       description: 'We unpack business goals, audience behaviors, and competitive insights to chart an intentional roadmap.',
+      color: 'text-blue-400',
+      borderColor: 'border-blue-500/30',
     },
     {
       icon: PaletteIcon,
       title: 'Experience Design',
       description: 'Collaborative workshops move from flows to prototypes, aligning aesthetics with measurable outcomes.',
+      color: 'text-purple-400',
+      borderColor: 'border-purple-500/30',
     },
     {
       icon: CodeIcon,
       title: 'Engineering Sprints',
       description: 'Reusable components, automated testing, and CI/CD pipelines keep velocity high without sacrificing quality.',
+      color: 'text-emerald-400',
+      borderColor: 'border-emerald-500/30',
     },
     {
       icon: SparklesIcon,
       title: 'Launch & Iterate',
       description: 'Telemetry, A/B testing, and growth experiments transform releases into continuous optimization cycles.',
+      color: 'text-amber-400',
+      borderColor: 'border-amber-500/30',
     },
   ];
 
@@ -72,331 +80,286 @@ export function WebDevelopment() {
     { value: '98+', label: 'Accessibility score benchmarks' },
   ];
 
-  const experienceHighlights = [
-    {
-      icon: LayersIcon,
-      title: 'Composable Delivery',
-      description: 'Design systems and micro frontends that unlock rapid feature deployment across teams.',
-    },
-    {
-      icon: ZapIcon,
-      title: 'Insight-driven Decisions',
-      description: 'Instrumentation pipelines fuel decisions with real-time product analytics and user intelligence.',
-    },
-    {
-      icon: SmartphoneIcon,
-      title: 'Adaptive Journeys',
-      description: 'Context-aware personalization keeps every user journey relevant, delightful, and conversion-ready.',
-    },
-    {
-      icon: ShieldIcon,
-      title: 'Resilient Operations',
-      description: 'Autoscaling infrastructure, zero-downtime deployments, and compliance-first workflows.',
-    },
-  ];
-
   const technologies = [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Node.js',
-    'Express',
-    'MongoDB',
-    'PostgreSQL',
-    'Tailwind CSS',
-    'GraphQL',
-    'AWS',
-    'Docker',
-    'Kubernetes',
+    'React', 'Next.js', 'TypeScript', 'Node.js', 'Express', 'MongoDB',
+    'PostgreSQL', 'Tailwind CSS', 'GraphQL', 'AWS', 'Docker', 'Kubernetes',
   ];
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-primary-black text-white">
-      <motion.div
-        className="absolute -top-40 left-[-18rem] h-[28rem] w-[28rem] rounded-full bg-purple-500/20 blur-3xl"
-        animate={{ scale: [1, 1.2, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute top-1/4 right-[-12rem] h-[30rem] w-[30rem] rounded-full bg-indigo-500/20 blur-3xl"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 32, repeat: Infinity, ease: 'linear' }}
-      />
-      <motion.div
-        className="absolute bottom-[-14rem] left-1/3 h-[26rem] w-[26rem] rounded-full bg-emerald-400/10 blur-3xl"
-        animate={{ opacity: [0.5, 0.9, 0.5] }}
-        transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-      />
+    <div className="relative w-full min-h-screen overflow-hidden bg-primary-black text-white font-sans">
 
-      <div className="relative z-10">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-24 px-6 py-24 lg:px-12">
-          <motion.section
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid items-center gap-16 lg:grid-cols-[1.1fr,0.9fr]"
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0B0B15]">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#1e1b4b_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#312e81_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
+
+        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center pt-20">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            <div className="space-y-10">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-purple-200">
-                <span className="h-2 w-2 rounded-full bg-purple-400" />
-                Web Development Studio
-              </span>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
-                Architecting digital products that customers can’t put down
-              </h1>
-              <p className="max-w-xl text-lg text-gray-300">
-                We transform ambitious ideas into high-performing platforms with human-centered design, reliable engineering, and measurable impact built into every sprint.
-              </p>
-              <div className="grid gap-6 sm:grid-cols-3">
-                {heroMetrics.map((metric) => (
-                  <motion.div
-                    key={metric.label}
-                    whileHover={{ y: -4 }}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6"
-                  >
-                    <p className="text-3xl font-semibold text-white">{metric.value}</p>
-                    <p className="mt-3 text-xs uppercase tracking-[0.25em] text-purple-200">{metric.label}</p>
-                  </motion.div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-semibold tracking-wide uppercase">
+              <TerminalIcon className="w-4 h-4" />
+              <span>Web Development Studio</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Digital Empires</span> One Line at a Time.
+            </h1>
+
+            <p className="text-lg text-gray-400 max-w-xl leading-relaxed">
+              We craft pixel-perfect, high-performance websites that drive growth. From complex web apps to stunning marketing sites, we deliver excellence.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="/contact"
+                className="px-8 py-4 bg-white text-black font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all"
+              >
+                Start Building
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
+              </motion.a>
+            </div>
+
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label}>
+                  <div className="text-3xl font-bold text-white">{metric.value}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-indigo-500/20">
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop"
+                alt="Coding Setup"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                </div>
+                <div className="font-mono text-sm text-gray-300 bg-black/50 p-4 rounded-xl backdrop-blur-md border border-white/10">
+                  <p><span className="text-purple-400">const</span> <span className="text-blue-400">future</span> = <span className="text-yellow-400">await</span> build(<span className="text-green-400">'dream'</span>);</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/30 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/30 rounded-full blur-3xl" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- CAPABILITIES SECTION --- */}
+      <section className="py-32 bg-[#0F0F1A] relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent" />
+
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-sm font-bold tracking-[0.3em] text-indigo-400 uppercase mb-4">Capabilities</h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Engineering Meets Artistry</h3>
+            <p className="text-gray-400 text-lg">We don't just write code; we architect experiences that leave a lasting impression.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="group relative p-8 rounded-3xl bg-[#181825] border border-white/5 hover:border-white/10 transition-all overflow-hidden"
+              >
+                <div className={`absolute top-0 right-0 w-32 h-32 ${feature.accent} opacity-10 blur-[50px] group-hover:opacity-20 transition-opacity`} />
+
+                <div className="relative z-10">
+                  <div className={`w-14 h-14 rounded-2xl ${feature.accent} bg-opacity-10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className={`w-7 h-7 text-white`} />
+                  </div>
+
+                  <h4 className="text-xl font-bold text-white mb-3">{feature.title}</h4>
+                  <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- PROCESS SECTION --- */}
+      <section id="process" className="py-32 bg-[#0B0B15] relative">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-sm font-bold tracking-[0.3em] text-purple-400 uppercase mb-4">Our Process</h2>
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">From Concept to <br />Launch</h3>
+
+              <div className="space-y-8">
+                {processSteps.map((step, index) => (
+                  <div key={step.title} className="flex gap-6 group">
+                    <div className="flex-shrink-0">
+                      <div className={`w-12 h-12 rounded-xl border ${step.borderColor} bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors`}>
+                        <step.icon className={`w-6 h-6 ${step.color}`} />
+                      </div>
+                      {index !== processSteps.length - 1 && (
+                        <div className="w-px h-full bg-white/10 mx-auto my-2" />
+                      )}
+                    </div>
+                    <div className="pb-8">
+                      <h4 className={`text-xl font-bold text-white mb-2 group-hover:${step.color} transition-colors`}>{step.title}</h4>
+                      <p className="text-gray-400">{step.description}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-black transition hover:-translate-y-1 hover:bg-purple-100"
-                >
-                  Start a project
-                </a>
-                <a
-                  href="/process"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:border-white"
-                >
-                  Explore our process
-                </a>
-              </div>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/30 via-indigo-600/20 to-black/40 p-10 backdrop-blur-xl"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),rgba(0,0,0,0))]" />
-              <div className="relative flex flex-col gap-10">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
-                  <CodeIcon className="h-8 w-8 text-purple-200" />
-                </div>
-                <h2 className="text-2xl font-semibold text-white">Blueprint to Build</h2>
-                <p className="text-sm leading-relaxed text-gray-200">
-                  Modular design systems, atomic components, and robust pipelines keep releases predictable while enabling bold experimentation.
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-sm text-gray-200">
-                  <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Stack</p>
-                    <p className="mt-3 text-base font-medium">TypeScript • Next.js • Tailwind</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Focus</p>
-                    <p className="mt-3 text-base font-medium">Conversion • Accessibility • Speed</p>
-                  </div>
-                </div>
-              </div>
             </motion.div>
-          </motion.section>
 
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Capabilities</p>
-                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Where strategy meets craft</h2>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+                  alt="Team Collaboration"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-purple-900/20 mix-blend-overlay" />
               </div>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.accent}`} />
-                  <div className="relative z-10 space-y-5">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-black/40">
-                      <feature.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-200">{feature.description}</p>
+
+              {/* Floating Card */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-10 -left-10 bg-[#181825] p-6 rounded-2xl border border-white/10 shadow-xl max-w-xs"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <CheckCircleIcon className="w-5 h-5 text-green-500" />
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Process</p>
-                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">A lifecycle tuned for velocity</h2>
-              </div>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20 text-purple-200 transition group-hover:bg-purple-500/30">
-                        <step.icon className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Phase 0{index + 1}</p>
-                        <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
-                      </div>
-                    </div>
-                    <span className="text-4xl font-semibold text-white/50">0{index + 1}</span>
-                  </div>
-                  <p className="mt-6 text-sm leading-relaxed text-gray-200">{step.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Technology</p>
-                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Stack engineered for scale</h2>
-              </div>
-            </div>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <div className="grid gap-8 lg:grid-cols-[1fr,1.3fr]">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-white">Future-proof tooling</h3>
-                  <p className="text-sm leading-relaxed text-gray-200">
-                    We assemble the right blend of frameworks, infra, and automation to accelerate launches today while keeping you flexible for tomorrow.
-                  </p>
-                  <div className="flex flex-col gap-4 text-sm text-gray-200">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/20">
-                        <ZapIcon className="h-4 w-4 text-purple-200" />
-                      </span>
-                      Edge-ready deployment, observability, and automated QA baked into every stack.
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-purple-500/20">
-                        <ShieldIcon className="h-4 w-4 text-purple-200" />
-                      </span>
-                      Security-first coding standards and DevSecOps guardrails protect every release.
-                    </div>
+                  <div>
+                    <div className="text-white font-bold">Project On Track</div>
+                    <div className="text-xs text-gray-400">Milestone 3 Completed</div>
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-3">
-                  {technologies.map((tech, index) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.03 }}
-                      className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-purple-200"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
+                <div className="w-full bg-white/10 rounded-full h-2">
+                  <div className="bg-green-500 h-2 rounded-full w-[85%]" />
                 </div>
-              </div>
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-purple-200">Experience Enhancers</p>
-                <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Real moments that make products unforgettable</h2>
-              </div>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              {experienceHighlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent" />
-                  <div className="relative z-10 space-y-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500/20 text-purple-200">
-                      <item.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-200">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-purple-500/30 via-indigo-600/40 to-blue-500/20 p-12 backdrop-blur-xl">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),rgba(0,0,0,0))]" />
-              <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-                <div className="max-w-2xl space-y-4">
-                  <h2 className="text-3xl font-semibold text-white sm:text-4xl">Ready to accelerate your next release?</h2>
-                  <p className="text-sm leading-relaxed text-purple-100">
-                    Let’s partner on experiences that marry bold creative with bulletproof engineering. We’ll co-create a launch plan around your KPIs and keep momentum strong long after shipping.
-                  </p>
-                </div>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-black transition hover:-translate-y-1 hover:bg-purple-100"
-                >
-                  Book a strategy session
-                </a>
-              </div>
-            </div>
-          </motion.section>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* --- TECH STACK --- */}
+      <section className="py-32 bg-gradient-to-b from-[#0F0F1A] to-[#0B0B15]">
+        <div className="container mx-auto px-6">
+          <div className="rounded-[3rem] bg-[#181825] border border-white/5 p-12 md:p-20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10" />
+            <div className="absolute -top-24 -right-24 w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px]" />
+
+            <div className="relative z-10 grid lg:grid-cols-2 gap-16">
+              <div>
+                <h3 className="text-4xl font-bold text-white mb-6">Powered by Modern Tech</h3>
+                <p className="text-gray-400 text-lg mb-10">
+                  We leverage the latest frameworks and tools to build scalable, maintainable, and future-proof applications.
+                </p>
+
+                <div className="flex gap-4">
+                  <div className="p-4 rounded-2xl bg-black/30 border border-white/10 backdrop-blur-sm">
+                    <CpuIcon className="w-8 h-8 text-blue-400 mb-2" />
+                    <div className="text-sm font-bold text-white">High Performance</div>
+                  </div>
+                  <div className="p-4 rounded-2xl bg-black/30 border border-white/10 backdrop-blur-sm">
+                    <GlobeIcon className="w-8 h-8 text-purple-400 mb-2" />
+                    <div className="text-sm font-bold text-white">Global Scale</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap content-start gap-3">
+                {technologies.map((tech, index) => (
+                  <motion.span
+                    key={tech}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    className="px-6 py-3 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-medium hover:text-white hover:border-white/30 transition-all cursor-default"
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CTA SECTION --- */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-black" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">Ready to Transform Your Vision?</h2>
+            <p className="text-xl text-indigo-200 mb-12">
+              Let's collaborate to build something extraordinary. Your digital journey starts here.
+            </p>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/contact"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-indigo-900 font-bold text-lg rounded-full shadow-2xl hover:shadow-white/20 transition-all"
+            >
+              Start Your Project
+              <ArrowRightIcon className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
 
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaggeredMenu } from './StaggeredMenu';
+import { Navigation } from './Navigation';
 import { Footer } from './Footer';
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -15,14 +15,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ];
 
   const socialItems = [
-      { label: 'Twitter', link: '#' },
-      { label: 'Instagram', link: '#' },
-      { label: 'LinkedIn', link: '#' },
+    { label: 'Twitter', link: '#' },
+    { label: 'Instagram', link: '#' },
+    { label: 'LinkedIn', link: '#' },
   ];
 
   return (
     <div>
-      <StaggeredMenu items={menuItems} socialItems={socialItems} isFixed={true} />
+      <Navigation />
       <main>{children}</main>
       <Footer />
     </div>

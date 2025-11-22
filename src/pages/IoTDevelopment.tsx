@@ -1,7 +1,8 @@
 import React from 'react';
 import { Footer } from '../components/Footer';
-import { CpuIcon, WifiIcon, DatabaseIcon, GaugeIcon, ShieldCheckIcon, NetworkIcon, RadarIcon, WavesIcon, SatelliteIcon } from 'lucide-react';
+import { CpuIcon, WifiIcon, DatabaseIcon, GaugeIcon, ShieldCheckIcon, NetworkIcon, RadarIcon, WavesIcon, SatelliteIcon, ArrowRightIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { TechStackCarousel } from '../components/TechStackCarousel';
 
 export function IoTDevelopment() {
   const heroMetrics = [
@@ -15,37 +16,43 @@ export function IoTDevelopment() {
       icon: CpuIcon,
       title: 'Edge Intelligence',
       description: 'Embedded ML models and rule engines that operate autonomously at the device layer.',
-      accent: 'from-cyan-500/60 via-teal-500/50 to-blue-500/40',
+      accent: 'bg-emerald-500',
+      span: 'md:col-span-2',
     },
     {
       icon: WifiIcon,
       title: 'Adaptive Connectivity',
       description: 'Multi-network orchestration across Wi-Fi, BLE, LoRaWAN, NB-IoT, and private 5G.',
-      accent: 'from-blue-500/60 via-indigo-500/50 to-slate-500/40',
+      accent: 'bg-teal-500',
+      span: 'md:col-span-1',
     },
     {
       icon: DatabaseIcon,
       title: 'Data Platforms',
       description: 'Streaming pipelines, time-series stores, and analytics dashboards tailored to each use case.',
-      accent: 'from-sky-400/60 via-cyan-500/50 to-teal-500/40',
+      accent: 'bg-cyan-500',
+      span: 'md:col-span-1',
     },
     {
       icon: GaugeIcon,
       title: 'Operational Visibility',
       description: 'Command centers, alerting, and remote device management for global fleets.',
-      accent: 'from-emerald-500/60 via-teal-500/50 to-blue-500/40',
+      accent: 'bg-lime-500',
+      span: 'md:col-span-2',
     },
     {
       icon: ShieldCheckIcon,
       title: 'Secure by Design',
       description: 'Hardware attestation, encrypted transport, and zero-trust policies guard every packet.',
-      accent: 'from-slate-500/60 via-blue-500/50 to-indigo-500/40',
+      accent: 'bg-green-500',
+      span: 'md:col-span-1',
     },
     {
       icon: NetworkIcon,
       title: 'Scalable Architecture',
       description: 'Modular microservices, digital twins, and APIs built to evolve with your roadmap.',
-      accent: 'from-cyan-500/60 via-blue-500/50 to-purple-500/40',
+      accent: 'bg-sky-500',
+      span: 'md:col-span-2',
     },
   ];
 
@@ -54,377 +61,264 @@ export function IoTDevelopment() {
       icon: RadarIcon,
       title: 'Discovery & Blueprint',
       description: 'Assess environments, compliance requirements, and ROI targets to architect the right solution.',
+      color: 'text-emerald-400',
+      borderColor: 'border-emerald-500/30',
     },
     {
       icon: CpuIcon,
       title: 'Prototype & Validate',
       description: 'Rapid PoCs align hardware, firmware, and cloud integrations before scaling to pilots.',
+      color: 'text-teal-400',
+      borderColor: 'border-teal-500/30',
     },
     {
       icon: WavesIcon,
       title: 'Connect & Orchestrate',
       description: 'Provision secure fleets, implement observability, and automate device lifecycle management.',
+      color: 'text-cyan-400',
+      borderColor: 'border-cyan-500/30',
     },
     {
       icon: SatelliteIcon,
       title: 'Scale & Optimize',
       description: 'Expand coverage, fine-tune models, and maximize insights with continuous improvement loops.',
+      color: 'text-lime-400',
+      borderColor: 'border-lime-500/30',
     },
-  ];
-
-  const solutionLayers = [
-    {
-      icon: RadarIcon,
-      title: 'Edge Processing',
-      description: 'Local inference, buffering, and policy enforcement reduce latency and bandwidth costs.',
-    },
-    {
-      icon: WavesIcon,
-      title: 'Connectivity Mesh',
-      description: 'Self-healing networks automatically reroute traffic across cellular, satellite, and LPWAN.',
-    },
-    {
-      icon: DatabaseIcon,
-      title: 'Data Fabric',
-      description: 'Unified data pipelines feed analytics, AI models, and enterprise systems in real time.',
-    },
-    {
-      icon: ShieldCheckIcon,
-      title: 'Security Envelope',
-      description: 'Device identity, firmware signing, and continuous monitoring protect every layer.',
-    },
-  ];
-
-  const industries = [
-    'Smart Manufacturing',
-    'Energy & Utilities',
-    'Supply Chain & Logistics',
-    'Smart Cities',
-    'Healthcare & MedTech',
-    'Agriculture',
   ];
 
   const technologies = [
-    'AWS IoT Core',
-    'Azure IoT Hub',
-    'Google Cloud IoT',
-    'MQTT',
-    'OPC UA',
-    'Grafana',
-    'Kubernetes',
-    'Rust',
-    'Node-RED',
-    'InfluxDB',
-    'TensorFlow Lite',
-    'Fleet Hub',
+    'AWS IoT Core', 'Azure IoT Hub', 'Google Cloud IoT', 'MQTT', 'OPC UA',
+    'Grafana', 'Kubernetes', 'Rust', 'Node-RED', 'InfluxDB', 'TensorFlow Lite', 'Fleet Hub',
   ];
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-primary-black text-white">
-      <motion.div
-        className="absolute -top-48 right-[-18rem] h-[30rem] w-[30rem] rounded-full bg-cyan-500/20 blur-3xl"
-        animate={{ scale: [1, 1.18, 1] }}
-        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="absolute top-1/3 left-[-14rem] h-[34rem] w-[34rem] rounded-full bg-blue-500/20 blur-3xl"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 38, repeat: Infinity, ease: 'linear' }}
-      />
-      <motion.div
-        className="absolute bottom-[-16rem] left-1/2 h-[28rem] w-[28rem] -translate-x-1/2 rounded-full bg-sky-400/10 blur-3xl"
-        animate={{ opacity: [0.5, 0.85, 0.5] }}
-        transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-      />
+    <div className="relative w-full min-h-screen overflow-hidden bg-primary-black text-white font-sans">
 
-      <div className="relative z-10">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-24 px-6 py-24 lg:px-12">
-          <motion.section
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="grid items-center gap-16 lg:grid-cols-[1.1fr,0.9fr]"
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050A05]">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,#064e3b_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,#0f766e_0%,transparent_40%)]" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light" />
+
+        <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center pt-20">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            <div className="space-y-10">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs uppercase tracking-[0.3em] text-cyan-200">
-                <span className="h-2 w-2 rounded-full bg-cyan-400" />
-                IoT Innovation Studio
-              </span>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl md:text-6xl">
-                Connect, monitor, and automate the physical world with confidence
-              </h1>
-              <p className="max-w-xl text-lg text-gray-200">
-                We design and deploy secure IoT ecosystems—from edge devices to cloud analytics—that deliver actionable intelligence and transformative efficiency.
-              </p>
-              <div className="grid gap-6 sm:grid-cols-3">
-                {heroMetrics.map((metric) => (
-                  <motion.div
-                    key={metric.label}
-                    whileHover={{ y: -4 }}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6"
-                  >
-                    <p className="text-3xl font-semibold text-white">{metric.value}</p>
-                    <p className="mt-3 text-xs uppercase tracking-[0.25em] text-cyan-200">{metric.label}</p>
-                  </motion.div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm font-semibold tracking-wide uppercase">
+              <CpuIcon className="w-4 h-4" />
+              <span>IoT Innovation Studio</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Connecting the <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Physical World</span> to Digital Intelligence.
+            </h1>
+
+            <p className="text-lg text-gray-400 max-w-xl leading-relaxed">
+              We design secure, scalable IoT ecosystems that drive efficiency. From edge devices to cloud analytics, we orchestrate the future of connected operations.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="/contact"
+                className="px-8 py-4 bg-white text-black font-bold rounded-full shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transition-all"
+              >
+                Launch Initiative
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
+              </motion.a>
+            </div>
+
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-white/10">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label}>
+                  <div className="text-3xl font-bold text-white">{metric.value}</div>
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mt-1">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl shadow-emerald-500/20">
+              <img
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+                alt="IoT Hardware"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+              {/* Floating Elements */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-10 left-10 bg-black/60 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-xl"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <WifiIcon className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-white">Signal Strong</div>
+                    <div className="text-xs text-gray-400">Latency: 12ms</div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/30 rounded-full blur-3xl" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-teal-500/30 rounded-full blur-3xl" />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- CAPABILITIES SECTION (BENTO GRID) --- */}
+      <section className="py-32 bg-[#050A08] relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent" />
+
+        <div className="container mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-sm font-bold tracking-[0.3em] text-emerald-400 uppercase mb-4">Capabilities</h2>
+            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">Engineered for Resilience</h3>
+            <p className="text-gray-400 text-lg">Robust solutions built to withstand the demands of industrial and commercial environments.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {capabilities.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                whileHover={{ scale: 1.02 }}
+                className={`group relative p-8 rounded-3xl bg-[#0A120F] border border-white/5 hover:border-white/10 transition-all overflow-hidden flex flex-col justify-between ${feature.span}`}
+              >
+                <div className={`absolute top-0 right-0 w-32 h-32 ${feature.accent} opacity-10 blur-[50px] group-hover:opacity-20 transition-opacity`} />
+
+                <div className="relative z-10">
+                  <div className={`w-12 h-12 rounded-xl ${feature.accent} bg-opacity-10 flex items-center justify-center mb-6`}>
+                    <feature.icon className={`w-6 h-6 text-white`} />
+                  </div>
+
+                  <h4 className="text-xl font-bold text-white mb-2">{feature.title}</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- PROCESS SECTION --- */}
+      <section id="process" className="py-32 bg-[#050A05] relative">
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-sm font-bold tracking-[0.3em] text-teal-400 uppercase mb-4">Our Process</h2>
+              <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">From Prototype to <br />Global Fleet</h3>
+
+              <div className="space-y-8">
+                {deploymentJourney.map((step, index) => (
+                  <div key={step.title} className="flex gap-6 group">
+                    <div className="flex-shrink-0">
+                      <div className={`w-12 h-12 rounded-xl border ${step.borderColor} bg-white/5 flex items-center justify-center group-hover:bg-white/10 transition-colors`}>
+                        <step.icon className={`w-6 h-6 ${step.color}`} />
+                      </div>
+                      {index !== deploymentJourney.length - 1 && (
+                        <div className="w-px h-full bg-white/10 mx-auto my-2" />
+                      )}
+                    </div>
+                    <div className="pb-8">
+                      <h4 className={`text-xl font-bold text-white mb-2 group-hover:${step.color} transition-colors`}>{step.title}</h4>
+                      <p className="text-gray-400">{step.description}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-black transition hover:-translate-y-1 hover:bg-cyan-100"
-                >
-                  Launch an IoT initiative
-                </a>
-                <a
-                  href="/process"
-                  className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-1 hover:border-white"
-                >
-                  Explore our process
-                </a>
-              </div>
-            </div>
+            </motion.div>
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-500/30 via-blue-500/20 to-black/40 p-10 backdrop-blur-xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative"
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.18),rgba(0,0,0,0))]" />
-              <div className="relative flex flex-col gap-10">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10">
-                  <CpuIcon className="h-8 w-8 text-cyan-200" />
-                </div>
-                <h2 className="text-2xl font-semibold text-white">Fleet observability at your fingertips</h2>
-                <p className="text-sm leading-relaxed text-gray-200">
-                  Custom telemetry dashboards, health scoring, and predictive maintenance workflows keep your operations proactive.
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-sm text-gray-200">
-                  <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Focus</p>
-                    <p className="mt-3 text-base font-medium">Industrial • Energy • Logistics</p>
-                  </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/40 p-5">
-                    <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Scale</p>
-                    <p className="mt-3 text-base font-medium">From pilots to millions of devices</p>
-                  </div>
-                </div>
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070&auto=format&fit=crop"
+                  alt="IoT Deployment"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-emerald-900/20 mix-blend-overlay" />
               </div>
             </motion.div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Capabilities</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Engineered for resilience, security, and scale</h2>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-              {capabilities.map((capability, index) => (
-                <motion.div
-                  key={capability.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${capability.accent}`} />
-                  <div className="relative z-10 space-y-5">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-black/40">
-                      <capability.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-white">{capability.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-200">{capability.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Journey</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">From prototype to full-scale IoT ecosystem</h2>
-            </div>
-            <div className="grid gap-6 lg:grid-cols-2">
-              {deploymentJourney.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-center gap-4">
-                      <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-200 transition group-hover:bg-cyan-500/30">
-                        <step.icon className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Phase 0{index + 1}</p>
-                        <h3 className="mt-2 text-xl font-semibold text-white">{step.title}</h3>
-                      </div>
-                    </div>
-                    <span className="text-4xl font-semibold text-white/50">0{index + 1}</span>
-                  </div>
-                  <p className="mt-6 text-sm leading-relaxed text-gray-200">{step.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Solution Layers</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Full-stack coverage from device to cloud</h2>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              {solutionLayers.map((layer, index) => (
-                <motion.div
-                  key={layer.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  whileHover={{ y: -6 }}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent" />
-                  <div className="relative z-10 space-y-4">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-200">
-                      <layer.icon className="h-6 w-6" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-white">{layer.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-200">{layer.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Industry Expertise</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Purpose-built solutions for complex environments</h2>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              {industries.map((industry, index) => (
-                <motion.span
-                  key={industry}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.04 }}
-                  className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-cyan-200"
-                >
-                  {industry}
-                </motion.span>
-              ))}
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-10"
-          >
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Technology</p>
-              <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Stack tuned for resilient IoT operations</h2>
-            </div>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <div className="grid gap-8 lg:grid-cols-[1fr,1.3fr]">
-                <div className="space-y-6">
-                  <h3 className="text-2xl font-semibold text-white">Connected infrastructure, end to end</h3>
-                  <p className="text-sm leading-relaxed text-gray-200">
-                    From device firmware to cloud orchestration, we leverage proven platforms and custom engineering to keep your IoT ecosystem dependable.
-                  </p>
-                  <div className="flex flex-col gap-4 text-sm text-gray-200">
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/20">
-                        <GaugeIcon className="h-4 w-4 text-cyan-200" />
-                      </span>
-                      Real-time monitoring and predictive maintenance guard every production line.
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/20">
-                        <ShieldCheckIcon className="h-4 w-4 text-cyan-200" />
-                      </span>
-                      Security automation keeps firmware, certificates, and policies continuously updated.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {technologies.map((tech, index) => (
-                    <motion.span
-                      key={tech}
-                      initial={{ opacity: 0, y: 12 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.03 }}
-                      className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-cyan-200"
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.section>
-
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-500/30 via-blue-500/40 to-indigo-500/20 p-12 backdrop-blur-xl">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18),rgba(0,0,0,0))]" />
-              <div className="relative flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-                <div className="max-w-2xl space-y-4">
-                  <h2 className="text-3xl font-semibold text-white sm:text-4xl">Ready to orchestrate the connected enterprise?</h2>
-                  <p className="text-sm leading-relaxed text-cyan-100">
-                    Partner with us to design secure, scalable IoT ecosystems that deliver measurable business outcomes.
-                  </p>
-                </div>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-black transition hover:-translate-y-1 hover:bg-cyan-100"
-                >
-                  Book a strategy session
-                </a>
-              </div>
-            </div>
-          </motion.section>
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* --- TECH STACK CAROUSEL --- */}
+      <section className="py-32 bg-gradient-to-b from-[#050A08] to-[#050A05]">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-white mb-4">Powered by Industrial Grade Tech</h3>
+            <p className="text-gray-400">Battle-tested protocols and infrastructure.</p>
+          </div>
+
+          <TechStackCarousel technologies={technologies} />
+        </div>
+      </section>
+
+      {/* --- CTA SECTION --- */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-black" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-3xl mx-auto"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-8">Ready to Connect?</h2>
+            <p className="text-xl text-emerald-200 mb-12">
+              Let's build the connected infrastructure that powers your business. Schedule a strategy session today.
+            </p>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/contact"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-emerald-900 font-bold text-lg rounded-full shadow-2xl hover:shadow-white/20 transition-all"
+            >
+              Start Your Project
+              <ArrowRightIcon className="w-5 h-5" />
+            </motion.a>
+          </motion.div>
+        </div>
+      </section>
 
     </div>
   );
